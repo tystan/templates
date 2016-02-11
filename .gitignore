@@ -36,7 +36,6 @@ acs-*.bib
 *.tikz
 *-tikzDictionary
 *.lol
-# makeidx
 *.idx
 *.ilg
 *.ind
