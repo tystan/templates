@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[lastname1 et~al.(1999)lastname1, lastname2, and lastname3]{author1999}
+fn1 lastname1, fn2 lastname2, and fn3 lastname3.
+\newblock A simple method of maths.
+\newblock \emph{Statistics in Maths}, 101\penalty0 (11):\penalty0 1234--1239,
+  1999.
+
+\end{thebibliography}

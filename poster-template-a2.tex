@@ -1,0 +1,407 @@
+% Poster template, Ty Stanford 2015-08-21
+
+\documentclass[a2,landscape]{a0poster}
+%a2,a1,a0 are all possible
+
+\usepackage[absolute]{textpos}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fancybox}
+\usepackage{fancyvrb}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=.8]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{dsfont}
+\usepackage{amsmath,enumerate,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{varioref}
+\usepackage[sort&compress]{natbib}
+\usepackage{enumitem}
+\usepackage{pagecolor}% http://ctan.org/pkg/pagecolor
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% packages options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setenumerate[1]{label=(\arabic*)}
+\bibpunct{[}{]}{;}{s}{,}{,}
+\def\bibfont{\footnotesize}
+\usetikzlibrary{arrows,arrows.meta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% general settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{empty}
+\renewcommand*{\familydefault}{\sfdefault}
+
+\parindent=0pt
+\parskip=0.5\baselineskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% grid for poster %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\TPGrid[10mm,10mm]{3}{100}      % 3 cols and 100 rows, 
+\TPMargin{10mm}                % 10mm inside each grid the boxes are formed
+\setlength{\TPboxrulesize}{4pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% colour defns (add as req) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\definecolor{pinkishoffwhite}{rgb}{0.950,0.869,0.753}
+\definecolor{redmaroon}{rgb}{0.451,0.086,0.188}
+\definecolor{uniblue}{rgb}{0.157,0.322,0.614}
+\definecolor{midgrey}{rgb}{0.220,0.220,0.251}
+
+\definecolor{tgreen}{RGB}{93,158,164}
+\definecolor{purp}{RGB}{128,71,119}
+\definecolor{softblue}{RGB}{66,123,161}
+\definecolor{darknav}{RGB}{10,17,57}
+
+\definecolor{hotorange}{HTML}{FF5900}
+\definecolor{redpurp}{HTML}{3E033D}
+\definecolor{purpprup}{HTML}{820082}
+\definecolor{dulldarkblue}{HTML}{00003D}
+
+\definecolor{blu}{HTML}{4F8FE3}
+\definecolor{gre}{HTML}{208E38}
+\definecolor{ora}{HTML}{FF6600}
+\definecolor{blutuu}{HTML}{3A4989}
+
+\definecolor{orabro}{HTML}{FF4000}
+\definecolor{pinbro}{HTML}{BF0449}
+\definecolor{brotwo}{HTML}{7E1E00}
+\definecolor{bro}{HTML}{400000}
+
+\definecolor{greagain}{HTML}{42594A}
+\definecolor{redagain}{HTML}{D91A1A}
+\definecolor{yel}{HTML}{F2BF27}
+\definecolor{blugredark}{HTML}{233C50}
+
+\definecolor{cyanish}{HTML}{47D2FF}
+\definecolor{midgrey}{rgb}{0.220,0.220,0.251}
+\definecolor{redas}{HTML}{F11A22}
+\definecolor{darkblu}{HTML}{2B115A}
+
+%\definecolor{}{HTML}{}
+%\definecolor{}{HTML}{}
+%\definecolor{}{HTML}{}
+%\definecolor{}{HTML}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%% !!! set these to change colours of poster !!! %%%%%%%%%%%%%%%%%
+
+%% background colour, horizontal lines around title
+\newcommand{\csone}{blu}
+
+%% author text colour, \Head (text heading) title colour, box type 1 outline colour
+\newcommand{\cstwo}{gre}
+
+%% box type 2 outline colour, \Subhead (sub heading) text colour
+\newcommand{\csthr}{ora}
+
+%% poster title colour, text colour in boxes
+\newcommand{\csfou}{blutuu}         
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% !!! change these too as req !!! %%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\titletxt}{Title text that is likely to go over two lines but re-position as required if only one line}
+\newcommand{\personone}{Ty Stanford}
+\newcommand{\persontwo}{Other author}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% colour scheme commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\pagecolor{\csone!10}
+\newcommand{\textcsone}[1]{\textcolor{\csone}{#1}}
+\newcommand{\textcstwo}[1]{\textcolor{\cstwo}{#1}}
+\newcommand{\textcsthr}[1]{\textcolor{\csthr}{#1}}
+\newcommand{\textcsfou}[1]{\textcolor{\csfou}{#1}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% insert user commands here %%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\bcen}{\begin{center}}
+\newcommand{\ecen}{\end{center}}
+\newcommand{\bfr}{\begin{flushright}}
+\newcommand{\efr}{\end{flushright}}
+\newcommand{\bfl}{\begin{flushleft}}
+\newcommand{\efl}{\end{flushleft}}
+
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\bit}{\begin{itemize}[label={\color{\csone}\textbullet}]\itemsep-1pt}
+\newcommand{\eit}{\end{itemize}}
+
+\newcommand{\spacebull}{\textcstwo{\textbullet}}
+
+\newcommand{\Head}[1]{\noindent{\large\textcstwo{#1}}\bigskip}
+\newcommand{\Subhead}[1]{\noindent{\textcsthr{#1}}}
+\newcommand{\inserttitle}[1]{\textcsfou{\textbf{{\veryHuge #1}}}}
+
+
+\tikzstyle{boxonetemplate} = [draw=\csone, fill=white!15, ultra thick,
+	rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+    
+\tikzstyle{boxtwotemplate} = [draw=\cstwo, fill=\cstwo!10, ultra thick,
+	rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+
+\newcommand{\boxone}[2]{%
+\vskip3pt%
+\begin{tikzpicture}\node[boxonetemplate](box){%
+\begin{minipage}{0.99\textwidth}%
+\bfr\large{\textbf{\textsf{\textcsfou{#1}}}}\efr\vspace{-20pt}
+\color{\csthr}{\rule{\textwidth}{0.5mm}}
+\textcsfou{#2}
+\end{minipage}%
+};\end{tikzpicture}%
+\vskip3pt%
+}
+
+
+\newcommand{\boxtwo}[2]{%
+\vskip3pt%
+\begin{tikzpicture}%
+\node[boxtwotemplate](box){%
+\begin{minipage}{0.99\textwidth}%
+\bfr\textbf{\textcsfou{#1}}\efr\vspace{-12pt}
+\textcsfou{#2}
+\end{minipage}%
+};\end{tikzpicture}%
+\vskip3pt%
+}
+
+% requires tikz >= 3.0.0
+% also the previous declaration: \usetikzlibrary{arrows,arrows.meta}
+\tikzset{
+  double arrow/.style args={#1}{
+    -triangle 60,line width=#1,\csone, % first arrow
+    postaction={draw,-triangle 60,\cstwo!50,line width=(#1)/4,
+                shorten <=(#1)/1.2,shorten >=2*(#1)/1.2}, % second arrow
+  }
+}
+\newcommand{\doarrow}[3]{%
+\begin{textblock}{1}(#1,#2)
+\begin{center}
+\begin{tikzpicture}
+\draw[double arrow=5pt] 
+		(0,1.5) coordinate -- (0,0) coordinate;
+\node[right] at (0.8,0.8) {\textcsthr{#3}};
+\end{tikzpicture}
+\vspace{-20pt}
+\end{center}
+\end{textblock}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% start poster %%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% !!!NOTE!!! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% this is how textblock declarations work:
+%
+% \begin{textblock}{<boxwidth>}(<columnpos>,<rowpos>)
+%
+% where:
+% <boxwidth> 
+%    normally is one (i.e. one column, unless you want a 2 column wide block)
+% <columnpos> 
+%    0,1,2 maps to columns 1,2,3 (the x-co-ord of the textblock's top-left corner)
+% <rowpos> 
+%    a number 0-100 corresponding to the y-co-ord of the textblock's top-left corner
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% title/header band %%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{textblock}{1}(0,-3.1)
+\color{\csone}{\rule{3.27\textwidth}{2mm}}
+\end{textblock}
+
+\begin{textblock}{1}(0,5)
+ \color{\csone}{\rule{3.27\textwidth}{2mm}}
+\end{textblock}
+
+
+\begin{textblock}{2}(0,-2.5)
+\bfr
+\inserttitle{\titletxt}
+\efr
+\end{textblock}
+
+
+\begin{textblock}{1}(2,-1.2)
+\bfl
+\color{\cstwo}{ { \personone \\[-1mm] \persontwo \\}}
+\efl
+\end{textblock}
+
+\begin{textblock}{2}(1,-2.5)
+\bcen
+ \color{\csfou}{\rule{1mm}{22mm}}  \color{\cstwo}{\rule{1mm}{22mm}} 
+\ecen
+\end{textblock}
+
+
+\begin{textblock}{0.4}(2.6,-1.75)
+\bfr
+	\includegraphics[width=\textwidth,height=0.05\textheight]{fig/corr.pdf}
+\efr
+\end{textblock}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(0,15)
+
+Words.
+
+\end{textblock}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(0,20)
+
+\boxone{Text title in block style 1}{words in block style 1}
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(0,42)
+
+\boxtwo{Text title in block style 2}{words in block style 2}
+
+\Head{Words }
+
+Words. 
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(1,62)
+
+Words.
+\bit
+\item item one
+\item item two
+\eit
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% arrow %%%%%%%%%%%%%%%%%%%
+\doarrow{1}{44}{If an arrow is required...}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(1,52)
+
+\Subhead{Text}
+
+Words
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(1,79)
+
+\Head{Words}
+
+Words
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(1,14)
+
+\Head{Words}
+
+Words.
+
+\end{textblock}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(2,14)
+\Subhead{Words example}
+
+Words.
+
+\Head{Words}
+
+Words
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(2,32)
+
+\Head{Words}
+
+Words
+
+\Subhead{Words}
+
+Words
+
+\end{textblock}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%
+\begin{textblock}{1}(2,56)
+
+\Subhead{Acknowledgement}
+
+Words
+
+\end{textblock}
+
+
+
+
+%\begin{textblock}{1}(2,10)
+%%\bibliographystyle{plain}
+%\bibliographystyle{ieeetr}
+%\bibliography{fig/bib.bib}
+%\end{textblock}
+
+
+\end{document}
