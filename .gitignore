@@ -1,3 +1,6 @@
+## don't want the tex file associated with the Rnw file
+knitr-template.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
