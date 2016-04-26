@@ -7,10 +7,10 @@ The `fig` directory contains the file dependencies of the templates.
 
 File | Description
 --- | --- | ---
-`article-template.tex`  | Standard article in LaTeX with the packages I use to make things prettier. 
-`beamer-template.tex`  | Simple beamer template for presentations.
-`knitr-template.Rnw`  | A template to include `R` code (evaluated) in TeX documents. to turn an `.Rnw` file to `.pdf`, run this in command line (assuming you have `R` installed/in the system's path, and have the `knitr` package installed in `R`): `Rscript -e "library(knitr); knit2pdf('knitr-template.Rnw')"`.
-`poster-template-a2.tex`  | An A2 poster template using LaTeX. Can be made into A1 or A0 sizes if required.
+[`article-template.tex`](https://github.com/tystan/templates/blob/master/article-template.tex)  | Standard article in LaTeX with the packages I use to make things prettier. 
+[`beamer-template.tex`](https://github.com/tystan/templates/blob/master/beamer-template.tex)  | Simple beamer template for presentations.
+[`knitr-template.Rnw`](https://github.com/tystan/templates/blob/master/knitr-template.Rnw)  | A template to include `R` code (evaluated) in TeX documents. to turn an `.Rnw` file to `.pdf`, run this in command line (assuming you have `R` installed/in the system's path, and have the `knitr` package installed in `R`): `Rscript -e "library(knitr); knit2pdf('knitr-template.Rnw')"`.
+[`poster-template-a2.tex`](https://github.com/tystan/templates/blob/master/poster-template-a2.tex)  | An A2 poster template using LaTeX. Can be made into A1 or A0 sizes if required.
 
 
 
