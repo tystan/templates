@@ -40,3 +40,4 @@ acs-*.bib
 *.ilg
 *.ind
 *.ist
+*.DS_Store
